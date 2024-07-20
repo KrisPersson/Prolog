@@ -77,3 +77,11 @@ process_stream(Char, Stream) :-
     write(Char),
     get_char(Stream, Char2),
     process_stream(Char2, Stream).
+
+count_to_10_from(10) :-
+    write(10), nl.
+
+count_to_10_from(X) :-
+    write(X), nl,
+    Y is X + 1,
+    count_to_10_from(Y).
