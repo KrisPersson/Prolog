@@ -85,3 +85,24 @@ count_to_10_from(X) :-
     write(X), nl,
     Y is X + 1,
     count_to_10_from(Y).
+
+count_down(Low, High) :-
+    between(Low, High, Y),
+    Z is High - Y,
+    write(Z), nl.
+
+count_up(Low, High) :-
+    between(Low, High, Y),
+    Z is Y + Low,
+    write(Z), nl.
+
+guess_num :- loop(start).
+
+loop(15) :- write('You guessed it!').
+
+loop(X) :-
+    X \= 15,
+    write('Guess number '),
+    read(Guess),
+    format('Your guess of ~w is wrong.', [X]), nl,
+    loop(Guess).
